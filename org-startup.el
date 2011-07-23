@@ -40,28 +40,30 @@
   "Options concerning contacts management."
   :group 'org)
 
-
 (defcustom org-startup-left-buffer "LBUFFER"
   "File to be displayed in the left buffer."
   :type 'string
   :group 'org-startup)
 
-
 (defcustom org-startup-right-buffer "RBUFFER"
   "File to be displayed in the right buffer."
   :type 'string
   :group 'org-startup)
-(defvar org-startup-keymap
-  (let ((map (make-sparse-keymap)))
-    (define-key map "C" 'org-startup-)
-    (define-key map "S" 'org-startup-)
-    map)
-  "The keymap used in `org-startup' result list.") #??
 
-(defun org-startup-view (&optional org-startup-left-buffer org-startup-right-buffer)
+(defcustom Org-Startup-Days "Org-Days"
+  "Number of days of calendar to show in starting agenda."
+  :type 'integer
+  :group 'org-startup)
+
+(defcustom Org-Startup-Deadline-Warning "Org-Deadline-Warn"
+  "Number of days to look into the future for deadlines."
+  :type 'integer
+  :group 'org-startup)
+
+(defun org-startup-view (&optional org-startup-left-buffer org-startup-right-buffer))
 
 (add-to-list 
- '(org-agenda-custom-commands 
+ ('org-agenda-custom-commands 
    (quote 
     (
      ("s" "Startup View" 
@@ -92,7 +94,5 @@
     )
    )
  )
-
- 
 
 (provide 'org-startup)
