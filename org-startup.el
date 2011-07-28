@@ -1,4 +1,4 @@
-;;; org-startup.el --- Startup Manager
+;;; org-startup.el --- Startup Manager Function File related to org-startup-agenda-views.el
 
 ;; Copyright (C) 2011 Matthew Sauer <Improv.Philosophy@gmail.com>
 ;; Author: Matthew Sauer <Improv.Philosophy@gmail.com>
@@ -23,18 +23,16 @@
 ;;; Commentary:
 ;;  This package is designed as a starting point to make using OrgMode 
 ;; easy for beginners with some basic customizing options for the Agenda 
-;; through customizing startup script.  
-;; 
+;; through customizing startup script.  This will be the file that all of 
+;; the items that can be autoloads or do not need to be loaded at the start.
 ;; 
 ;;
 ;;; Code:
 
-(eval-when-compile
-  (require 'cl))
-
 (eval-and-compile
   (require 'org))
-(require 'org-agenda)
+(eval-and-compile
+(require 'org-agenda))
 
 (defgroup org-startup nil
   "Options concerning contacts management."
