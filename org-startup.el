@@ -38,6 +38,11 @@
   "Options concerning contacts management."
   :group 'org)
 
+(defcustom org-startup-use "UseOrgStartup"
+  "Should Org-Startup Execute?"
+  :type 'string
+  :group 'org-startup)
+
 (defcustom org-startup-left-buffer "LBUFFER"  ;going to be a call to a file or 
   "File to be displayed in the left buffer."  ;an agenda startup view, need to make options
   :type 'string

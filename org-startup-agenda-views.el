@@ -28,8 +28,8 @@
 ;; functional, calling functions and using vars from org-startup.el
 ;;
 ;;; Code:
-(require 'org-startup)
-	
+(eval-and-compile 'org-startup)
+
 (add-to-list 
  'org-agenda-custom-commands 
    '(
@@ -60,8 +60,9 @@
      )
  )
 
+(If (!= Org-Startup-Use nil)
     (org-agenda nil "s")
 (split-window-horizontally)
 (find-file "/cygdrive/c/Dropbox/Org/Refile.org")
-
+)
  (provide 'Org-Startup-Agenda-Views)
