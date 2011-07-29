@@ -60,7 +60,7 @@
      )
  )
 
-(if (not (Org-Startup-Use nil))
+(if (= (Org-Startup-Use "y"))
     (org-agenda nil "s")
 (split-window-horizontally)
 (find-file "/cygdrive/c/Dropbox/Org/Refile.org")

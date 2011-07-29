@@ -39,9 +39,9 @@
   :type 'string
   :group 'org)
 
-(defcustom org-startup-use 
-  "Should Org-Startup Execute?"
-  :type 'string
+(defcustom org-startup-use "n"
+  "Should Org-Startup Execute?" 
+  :type 'options ("y" "n")
   :group 'org-startup)
 
 (defcustom org-startup-buffer   ;going to be a call to a file  
