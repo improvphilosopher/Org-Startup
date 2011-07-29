@@ -36,22 +36,19 @@
 
 (defgroup org-startup nil
   "Options concerning contacts management."
+  :type 'string
   :group 'org)
 
-(defcustom org-startup-use "UseOrgStartup"
+(defcustom org-startup-use 
   "Should Org-Startup Execute?"
   :type 'string
   :group 'org-startup)
 
-(defcustom org-startup-left-buffer "LBUFFER"  ;going to be a call to a file or 
-  "File to be displayed in the left buffer."  ;an agenda startup view, need to make options
-  :type 'string
+(defcustom org-startup-buffer   ;going to be a call to a file  
+  "File to be displayed in the left buffer."  
+  :type 'file
   :group 'org-startup)
 
-(defcustom org-startup-right-buffer "RBUFFER"  ;going to be a call to a file or 
-  "File to be displayed in the right buffer."  ; and agenda startup view, need to make options
-  :type 'string
-  :group 'org-startup)
 
 (defcustom Org-Startup-Days "Org-Days"
   "Number of days of calendar to show in starting agenda."
