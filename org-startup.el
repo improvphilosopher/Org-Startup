@@ -41,7 +41,7 @@
 
 (defcustom org-startup-use "n"
   "Should Org-Startup Execute?" 
-  :type 'options ("y" "n")
+  :options ("y" "n")
   :group 'org-startup)
 
 (defcustom org-startup-buffer   ;going to be a call to a file  
