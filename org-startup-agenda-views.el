@@ -33,7 +33,7 @@
 (add-to-list 
  'org-agenda-custom-commands 
    '(
-     ("s1" "Startup View" 
+     ("s" "Startup View" 
       (
        (agenda "" 
 	     (
@@ -60,7 +60,7 @@
      )
  )
 
-    (org-agenda nil "s1")
+    (org-agenda nil "s")
 (split-window-horizontally)
 (find-file "/cygdrive/c/Dropbox/Org/Refile.org")
 
