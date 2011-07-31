@@ -29,37 +29,35 @@
 ;;
 ;;; Code:
 
-(eval-and-compile
-  (require 'org))
-(eval-and-compile
-(require 'org-agenda))
+(defvar org-startup-days nil)
+(defvar org-startup-deadline-warning nil) 
 
-(defgroup org-startup nil
-  "Options concerning contacts management."
-  :type 'string
+(defgroup org-startup-screen nil
+  "Options concerning startup screen management."
   :group 'org)
 
-(defcustom org-startup-use "n"
-  "Should Org-Startup Execute?" 
-  :options ("y" "n")
-  :group 'org-startup)
+(defcustom org-startup-use nil
+  "Should Org-Startup Execute? " 
+  :type '(choice 
+	  (const :tag "Yes" t)
+	  (const :tag "No" nil))
+  :group 'org-startup-screen)
 
-(defcustom org-startup-buffer   ;going to be a call to a file  
+(defcustom org-startup-buffer  nil
   "File to be displayed in the left buffer."  
-  :type 'file
-  :group 'org-startup)
+  :type '(repeat file)
+  :group 'org-startup-screen)
 
-
-(defcustom Org-Startup-Days "Org-Days"
+(defcustom org-startup-days 3
   "Number of days of calendar to show in starting agenda."
-  :type 'integer
-  :group 'org-startup)
+  :type '(number)
+  :group 'org-startup-screen)
 
-(defcustom Org-Startup-Deadline-Warning "Org-Deadline-Warn"
+(defcustom org-startup-deadline-warning 180
   "Number of days to look into the future for deadlines."
-  :type 'integer
-  :group 'org-startup)
+  :type '(number)
+  :group 'org-startup-screen)
 
-(defun org-startup-view (&optional org-startup-left-buffer org-startup-right-buffer))
+;(defun org-startup-view (&optional org-startup-buffer))
 
 (provide 'org-startup)

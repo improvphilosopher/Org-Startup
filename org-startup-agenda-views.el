@@ -28,41 +28,12 @@
 ;; functional, calling functions and using vars from org-startup.el
 ;;
 ;;; Code:
-(eval-and-compile 'org-startup)
-
-(add-to-list 
- 'org-agenda-custom-commands 
-   '(
-     ("s" "Startup View" 
-      (
-       (agenda "" 
-	     (
-	      (org-agenda-ndays 'Org-Startup-Days) ;; How many days of calendar to show
-	      (org-deadline-warning-days 0))) ;; Should show only deadlines on day they are scheduled is visible
-       (agenda "" 
-	     (
-	      (org-agenda-time-grid nil) 
-	      (org-deadline-warning-days 'Org-Startup-Deadline-Warning) ;; Number of days into the future to look for deadlines
-	      (org-agenda-entry-types 
-	       (quote 
-	        (:deadline))) ;; looking just for deadlines
-	      (org-agenda-skip-entry-if 
-	       (quote scheduled)) ;; Should this be something that can be turned on and off?  Do we want to see them if they are scheduled?
-	      (org-agenda-ndays 1) ;; Just looking at one day to generate a look of "How many days until that deadline" list.
-	      (org-agenda-overriding-header "Upcoming deadlines:")))  ;; Title
-       (todo "" 
-	   (quote 
-	    (org-agenda-overriding-header "Unscheduled No Deadline TODO: ") ;; Finds TODO's that are != scheduled and have no deadline
-	    )
-	   )
-       )
-      )
-     )
- )
-
-(if (= (Org-Startup-Use "y"))
-    (org-agenda nil "s")
-(split-window-horizontally)
-(find-file "/cygdrive/c/Dropbox/Org/Refile.org")
-)
+(eval-and-compile 
+  (require 'org-agenda))
+(load "/elisp/dev/startup/org-startup/org-startup.el")
+(declare-function org-agenda "org-agenda" nil)
+(setq org-agenda-custom-commands '(("s" "Startup View" ((agenda "" ((org-agenda-ndays org-startup-days) (org-deadline-warning-days 0))) (agenda "" ((org-agenda-time-grid nil) (org-deadline-warning-days 365) (org-agenda-entry-types (quote (:deadline))) (org-agenda-skip-entry-if (quote scheduled)) (org-agenda-ndays 1) (org-agenda-overriding-header "Unscheduled upcoming deadlines:"))) (todo "" (quote (org-agenda-overriding-header "Unscheduled No Deadline TODO: ")))))))
+(add-to-list org-agenda-custom-commands (quote (("x" "Describe command here" alltodo "" nil))))
+(if (equal org-startup-use t)
+    ((org-agenda nil "s") (split-window-horizontally) (find-file org-startup-buffer)))
  (provide 'Org-Startup-Agenda-Views)
